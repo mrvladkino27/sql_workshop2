@@ -2,17 +2,17 @@
 -- FIRST TASK
 ---------------------------
 SELECT 
-       MANUFACTURED.COMPANY_NAME,
+       MANUFACTURER.COMPANY_NAME,
        COUNT(CAR.CAR_VIN)
       FROM
         CAR JOIN LOT
             ON CAR.CAR_VIN = lot.car_vin
         JOIN CAR_MODEL
             ON CAR.CAR_MODEL = car_model.model_name
-        JOIN MANUFACTURED
-            ON car_model.model_manufactured = MANUFACTURED.COMPANY_NAME
+        JOIN MANUFACTURER
+            ON car_model.model_manufactured = MANUFACTURER.COMPANY_NAME
             
-             GROUP BY MANUFACTURED.COMPANY_NAME;
+             GROUP BY MANUFACTURER.COMPANY_NAME;
 ---------------------------
 -- SECOND TASK
 ---------------------------
