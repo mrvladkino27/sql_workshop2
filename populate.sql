@@ -1,5 +1,5 @@
 ---------------------------
--- Populate Manufactured table
+-- Populate Manufacturer table
 ---------------------------
 INSERT INTO Manufacturer(company_name)
 VALUES('Toyota');
