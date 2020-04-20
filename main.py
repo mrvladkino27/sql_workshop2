@@ -77,3 +77,67 @@ for record in result:
 	amount.append(record[1])
 	print(record[0]," "*21, record[1])
 print('')
+
+connection.close()
+
+#################################################################################
+import chart_studio
+
+chart_studio.tools.set_credentials_file(username = 'mar4vv', api_key = 'GNHKbFEvHFzR1DFcPIos')
+
+import plotly.graph_objects as go
+import chart_studio.plotly as py
+import chart_studio.dashboard_objs as dashboard
+import re
+
+def fileId_from_url(url):
+	raw_fileID = re.findall("~[A-z.]+/[0-9]+", url)[0][1:]
+	return raw_fileID.replace('/', ':')
+
+
+bar = go.Bar(x = company, y = count)
+bar_scheme = py.plot([bar], filename = 'db_lab_2_1')
+
+trace = go.Scatter(
+	x= years,
+	y = amount
+)
+
+data = [trace]
+plot_scheme = py.plot(data, filename = 'db_lab_2_2')
+
+
+pie = go.Pie(labels = fuel_type, values = rate)
+pie_scheme = py.plot([pie], filename = 'db_lab_2_3')
+
+my_board = dashboard.Dashboard()
+bar_scheme_id = fileId_from_url(bar_scheme)
+plot_scheme_id = fileId_from_url(plot_scheme)
+pie_scheme_id = fileId_from_url(pie_scheme)
+
+box_1 = {
+	'type' : 'box',
+	'boxType' : 'plot',
+	'fileId' : bar_scheme_id,
+	'title' : 'Companies'
+}
+
+box_2 = {
+	'type' : 'box',
+	'boxType' : 'plot',
+	'fileId' : plot_scheme_id,
+	'title' : 'Years'
+}
+
+box_3 = {
+	'type' : 'box',
+	'boxType' : 'plot',
+	'fileId': pie_scheme_id,
+	'title' : 'Fuel'
+}
+
+my_board.insert(box_3)
+my_board.insert(box_1, 'above', 1)
+my_board.insert(box_2, 'right', 2)
+
+py.dashboard_ops.upload(my_board, 'DB Lab 2')
