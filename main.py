@@ -22,7 +22,7 @@ query = '''
             	GROUP BY MANUFACTURER.COMPANY_NAME
 '''
 cursor.execute(query)
-print('')
+print('іфукіуук')
 print('')
 print('First request shows which companies produced cars and amount of that cars')
 
@@ -80,7 +80,7 @@ print('')
 
 connection.close()
 
-#################################################################################
+######################################################################################################
 import chart_studio
 
 chart_studio.tools.set_credentials_file(username = 'mar4vv', api_key = 'GNHKbFEvHFzR1DFcPIos')
@@ -110,7 +110,7 @@ plot_scheme = py.plot(data, filename = 'db_lab_2_2')
 pie = go.Pie(labels = fuel_type, values = rate)
 pie_scheme = py.plot([pie], filename = 'db_lab_2_3')
 
-my_board = dashboard.Dashboard()
+my_dashboard = dashboard.Dashboard()
 bar_scheme_id = fileId_from_url(bar_scheme)
 plot_scheme_id = fileId_from_url(plot_scheme)
 pie_scheme_id = fileId_from_url(pie_scheme)
@@ -136,8 +136,8 @@ box_3 = {
 	'title' : 'Fuel'
 }
 
-my_board.insert(box_3)
-my_board.insert(box_1, 'above', 1)
-my_board.insert(box_2, 'right', 2)
+my_dashboard.insert(box_3)
+my_dashboard.insert(box_1, 'above', 1)
+my_dashboard.insert(box_2, 'right', 2)
 
-py.dashboard_ops.upload(my_board, 'DB Lab 2')
+py.dashboard_ops.upload(my_dashboard, 'DB Lab 2')
