@@ -63,7 +63,7 @@ VALUES('1000000005', 'Land Cruiser', 'white', 'gas', 'SUV', 'automatic', 8, 2010
 INSERT INTO Car(car_vin, car_model, car_color, car_fuel, car_type, car_transmission, car_count_cylinders, car_year, car_mileage, car_condition, car_drive)
 VALUES('1000000006', 'Golf', 'black', 'disel', 'compact car', 'manual', 4, 2017, 60000, 'pained', '2wd');
 INSERT INTO Car(car_vin, car_model, car_color, car_fuel, car_type, car_transmission, car_count_cylinders, car_year, car_mileage, car_condition, car_drive)
-VALUES('1000000007', 'Land Cruiser', 'white', 'dissel', 'SUV', 'automatic', 8, 2010, 50000, 'original', '4wd');
+VALUES('1000000007', 'Land Cruiser', 'white', 'disel', 'SUV', 'automatic', 8, 2010, 50000, 'original', '4wd');
 ---------------------------
 -- Populate Lot table
 ---------------------------
